@@ -22,7 +22,8 @@ This project helps libraries monitor available seats in real time and manage boo
 - **Backend:** Simulated backend using localStorage (optional Node.js / Firebase)
 - **AI / ML:** MediaPipe (seat detection)
 - **Routing & State:** React Router, React Hooks
-- **UI & Icons:** Lucide-React, Radix UI - AI Chatbot: Google Gemini API
+- **UI & Icons:** Lucide-React, Radix UI
+- AI Chatbot: Google Gemini API
    Gemini AI – Integrated as an intelligent chatbot assistant to help users with seat
    availability queries, library rules, and general assistance.
 ---
