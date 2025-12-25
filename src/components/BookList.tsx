@@ -29,6 +29,8 @@ const BookList = ({ books, stats }: BookListProps) => {
         return <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30"><UserCheck className="w-3 h-3 mr-1" />Reserved</Badge>;
     }
   };
+ console.log('Books prop:', books);
+console.log('Filtered books:', filteredBooks);
 
   return (
     <Card className="glass-card border-border/50">
@@ -54,24 +56,31 @@ const BookList = ({ books, stats }: BookListProps) => {
           </div>
         </div>
       </CardHeader>
-      <CardContent>
-        {filteredBooks.length === 0 ? (
+     <CardContent className="w-full">
+           {filteredBooks.length === 0 ? (
           <div className="text-center py-8 text-muted-foreground">
             {search ? 'No books found matching your search' : 'No books available'}
           </div>
         ) : (
-          <div className="grid gap-3 sm:grid-cols-2">
+         <div className="grid gap-3 sm:grid-cols-2">
+
             {filteredBooks.map((book) => (
-              <div
-                key={book.id}
-                className="flex items-start justify-between gap-3 p-3 rounded-lg border border-border/50 bg-background/30 hover:bg-background/50 transition-colors"
-              >
-                <div className="min-w-0 flex-1">
-                  <p className="font-medium truncate">{book.title}</p>
-                  <p className="text-sm text-muted-foreground truncate">{book.author}</p>
-                </div>
-                {getStatusBadge(book.status)}
-              </div>
+             <div
+          key={book.id}
+         className="flex items-start justify-between gap-3 p-3 rounded-lg border border-border/50 bg-background/30 hover:bg-background/50 transition-colors w-full"
+        >
+        <div className="flex-1">
+         <p className="font-medium break-words whitespace-normal">
+         {book.title}
+         </p>
+         <p className="text-sm text-muted-foreground break-words whitespace-normal">
+         {book.author}
+         </p>
+          </div>
+         <div className="shrink-0">
+         {getStatusBadge(book.status)}
+          </div>
+           </div>
             ))}
           </div>
         )}
